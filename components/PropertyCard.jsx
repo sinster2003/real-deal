@@ -14,7 +14,6 @@ const PropertyCard = ({
     area,
     isVerified,
     rentFrequency,
-    purpose,
     price,
     type,
     agency: {logo},
@@ -22,9 +21,6 @@ const PropertyCard = ({
     product,
   },
 }) => {
-
-  console.log(logo);
-
 
   return (
     <Link href={`/property/${externalID}`}>
@@ -38,10 +34,16 @@ const PropertyCard = ({
         borderRadius="10"
         transition= "transform 0.6s ease"
         _hover={{transform: "scale(1.1, 1.1)"}}
+        sx={{
+          "@media screen and (max-width: 600px)": {
+            mx: "2px",
+            p:"6",
+          }
+        }}
       >
         <Box>
           <Image
-            src={coverPhoto.url}
+            src={coverPhoto?.url}
             alt={`${product} ${type}`}
             width={300}
             height={200}
@@ -60,7 +62,7 @@ const PropertyCard = ({
             </Box>
           </Flex>
           <Flex alignItems="center" gap="5" color="teal.400" mt="2">
-            {rooms} <FaBed/> | {baths} <FaBath/> | {millify(area)}sqrt <BsGridFill/>
+            {rooms} <FaBed/> | {baths} <FaBath/> | {millify(area)}sqft <BsGridFill/>
           </Flex>
           <Text mt="2" fontSize="md">{title.length > 30 ? `${title.substring(0,30)}...` : title}</Text>
         </Flex>

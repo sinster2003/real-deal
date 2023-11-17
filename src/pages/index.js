@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
-import { fetchData } from "@/utils/fetchData";
-import PropertyCard from "@/components/PropertyCard";
+import { fetchData } from "../../utils/fetchData";
+import PropertyCard from "../../components/PropertyCard";
 
 const BannerProduct = ({
   imageURL,
