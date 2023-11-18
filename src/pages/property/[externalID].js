@@ -12,7 +12,7 @@ const PropertyDetails = ({
     amenities,
     baths,
     rooms,
-    agency: { logo },
+    agency,
     description,
     title,
     area,
@@ -88,7 +88,7 @@ const PropertyDetails = ({
               </Text>
             </Flex>
             <Box>
-              <Avatar size="sm" src={logo?.url} objectFit="cover" />
+              <Avatar size="sm" src={agency?.logo?.url} objectFit="cover" />
             </Box>
           </Flex>
           <Flex alignItems="center" gap="5" color="teal.400" mt="6" mb="5">

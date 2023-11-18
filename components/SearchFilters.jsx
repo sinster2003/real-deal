@@ -3,9 +3,8 @@ import filterData from "../utils/filterData";
 import { Flex, Select, Input, Button } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
-const SearchFilters = () => {
+const SearchFilters = ({ value, setValue }) => {
   const router = useRouter();
-  const [value, setValue] = useState("");
   const [bool, setBool] = useState(false);
   const optionRef = useRef([]);
 
@@ -25,7 +24,7 @@ const SearchFilters = () => {
     setBool(false);
   };
 
-  const handleLocation = (e) => {
+  const handleLocation = async (e) => {
     setValue(e.target.value);
   };
 

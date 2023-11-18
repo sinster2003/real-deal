@@ -16,7 +16,7 @@ const PropertyCard = ({
     rentFrequency,
     price,
     type,
-    agency: {logo},
+    agency,
     coverPhoto,
     product,
   },
@@ -58,13 +58,13 @@ const PropertyCard = ({
               <Text mx="2">AED {millify(price)}{rentFrequency && `/${rentFrequency}`}</Text>
             </Flex> 
             <Box>
-              <Avatar size="sm" src={logo?.url} objectFit="cover"/>
+              <Avatar size="sm" src={agency?.logo?.url} objectFit="cover"/>
             </Box>
           </Flex>
           <Flex alignItems="center" gap="5" color="teal.400" mt="2">
             {rooms} <FaBed/> | {baths} <FaBath/> | {millify(area)}sqft <BsGridFill/>
           </Flex>
-          <Text mt="2" fontSize="md">{title.length > 30 ? `${title.substring(0,30)}...` : title}</Text>
+          <Text mt="2" fontSize="md">{title?.length > 30 ? `${title?.substring(0,30)}...` : title}</Text>
         </Flex>
       </Flex>
     </Link>

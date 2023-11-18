@@ -10,7 +10,42 @@ const Search = ({ properties }) => {
   // url ---> /search?
   const router = useRouter();
   const [showSearchFilters, setShowSearchFilters] = useState(false);
-  const [locationProperties, setLocationProperties] = useState(properties);
+  const [value, setValue] = useState("");
+  const [locationData, setLocationData] = useState(null);
+
+  useEffect(() => {
+    const filterLocationData = properties.filter(property => {
+
+      const {location} = property;
+
+      console.log("location",location)
+
+      // some checks at least one case being true then returns true
+      const isLocated = location.some(item => item.name?.toString().toLowerCase().includes(value.toString().toLowerCase()))
+
+      return isLocated && property
+    })
+
+    setLocationData(filterLocationData);
+
+  }, [value, properties])
+  
+  // filtering out land properties
+  let filterProperties;
+
+  if(value === "") {
+    filterProperties = properties;
+  }
+  else if(value !== "" && locationData) {
+    filterProperties = locationData;
+  }
+  else {
+    filterProperties=[];
+  }
+
+  if(!locationData) {
+    return <Text>Loading...</Text>
+  }
 
   return (
     <Box>
@@ -35,7 +70,7 @@ const Search = ({ properties }) => {
           </Text>
           <Icon as={BsFilter} ml="3" fontSize="lg" />
         </Flex>
-        {showSearchFilters && <SearchFilters/>}
+        {showSearchFilters && <SearchFilters value={value} setValue={setValue}/>}
       </Flex>
       <Text fontSize="3xl" fontWeight="bold" p="8" color="gray.500" sx={{"@media screen and (max-width: 600px)": {
             textAlign: "center"
@@ -43,11 +78,11 @@ const Search = ({ properties }) => {
         Properties {router.query?.purpose}
       </Text>
       <Flex flexWrap="wrap" justifyContent="center" alignItems="center" gap="8">
-        {properties.map((property) => (
+        {filterProperties?.map((property) => (
           <PropertyCard property={property} key={property.id} />
         ))}
       </Flex>
-      {properties.length === 0 && <Text>No match Found</Text>}
+      {filterProperties.length === 0 && <Text textAlign="center">No match Found</Text>}
     </Box>
   );
 };
