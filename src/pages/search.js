@@ -16,14 +16,12 @@ const Search = ({ properties }) => {
   useEffect(() => {
     const filterLocationData = properties.filter(property => {
 
-      const {location} = property;
-
-      console.log("location",location)
+      const { location } = property;
 
       // some checks at least one case being true then returns true
-      const isLocated = location.some(item => item.name?.toString().toLowerCase().includes(value.toString().toLowerCase()))
+      const isLocated = location.some(item => item.name?.toString().toLowerCase().includes(value.toString().toLowerCase()));
 
-      return isLocated && property
+      return isLocated && property;
     })
 
     setLocationData(filterLocationData);

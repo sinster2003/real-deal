@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import filterData from "../utils/filterData";
 import { Flex, Select, Input, Button } from "@chakra-ui/react";
 import { useRouter } from "next/router";
@@ -30,7 +30,10 @@ const SearchFilters = ({ value, setValue }) => {
 
   const handleReset = async () => {
     setBool(true);
+
+    // manipulating DOM Select to make the values ""
     optionRef.current.forEach((option) => (option.value = ""));
+
     await router.push({ pathname: router.pathname, query: {} });
     setBool(false);
   };
@@ -43,13 +46,21 @@ const SearchFilters = ({ value, setValue }) => {
       alignItems="center"
       flexWrap="wrap"
     >
-      <Flex flexWrap="wrap" w="100%" alignItems="center" justifyContent="center" my="4" gap="8">
+      <Flex
+        flexWrap="wrap"
+        w="100%"
+        alignItems="center"
+        justifyContent="center"
+        my="4"
+        gap="8"
+      >
         {filterData.map((data, i) => {
           return (
             <Select
               key={data.name}
               w="50"
               onChange={(e) => handleFilter(data.name, e.target.value)}
+              // ref each select element in current array to manipulate DOM
               ref={(ele) => (optionRef.current[i] = ele)}
               disabled={bool}
             >
@@ -62,7 +73,9 @@ const SearchFilters = ({ value, setValue }) => {
           );
         })}
 
-        <Button onClick={handleReset} disabled={bool}>Reset</Button>
+        <Button onClick={handleReset} disabled={bool}>
+          Reset
+        </Button>
       </Flex>
       <Input
         placeholder={"Search By Location..."}
