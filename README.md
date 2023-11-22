@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# RealDeal
+
+RealDeal is a `NextJS` Real Estate Web application styled using Chakra UI and content fetched from Rapid API.
 
 ## Getting Started
 
@@ -16,25 +18,30 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Technologies Used in the project
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+* NextJS
+* ReactJS
+* ChakraUI
+* RapidAPI
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Dependencies used in the project
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+* axios (for data fetching)
+* millify (for number formatting)
+* nprogress (for loading bar)
+* react-icons (for icons used)
+* react-horizontal-scrolling-menu (for carousel)
 
-## Learn More
+## Deployed the project on Vercel
 
-To learn more about Next.js, take a look at the following resources:
+[https://real-deal-liart.vercel.app/](https://real-deal-liart.vercel.app/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Screenshots
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![screencapture-real-deal-liart-vercel-app-2023-11-22-21_50_49](https://github.com/sinster2003/real-deal/assets/98259926/f9f6f3a5-91fd-4565-82a8-2060d7684473)
 
-## Deploy on Vercel
+![screencapture-real-deal-liart-vercel-app-property-7655619-2023-11-22-21_51_31](https://github.com/sinster2003/real-deal/assets/98259926/69bcfc8d-c803-4199-889a-ed0c56912d02)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![screencapture-real-deal-liart-vercel-app-search-2023-11-22-21_52_42](https://github.com/sinster2003/real-deal/assets/98259926/66dfe253-1ba0-486e-908d-d698dbe7d4d9)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
